@@ -8,19 +8,36 @@ namespace DiceRoll_Solution
 {
     class Program
     {
+
         static void Main(string[] args)
         {
+            //set the output encoding
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+
             Console.WriteLine("This program will allow you to roll two dice");
             Console.WriteLine("as many times as you want.");
             Console.WriteLine("Press enter twice to begin rolling.\n");
             Console.ReadLine();
 
+            var die = new Dictionary<int, string>
+            {
+                { 1, "┌─────────┐\n│         │\n│    ○    │\n│         │\n└─────────┘" },
+                { 2, "┌─────────┐\n│         │\n│  ○   ○  │\n│         │\n└─────────┘" },
+                { 3, "┌─────────┐\n│    ○    │\n│  ○   ○  │\n│         │\n└─────────┘" },
+                { 4, "┌─────────┐\n│  ○   ○  │\n│         │\n│  ○   ○  │\n└─────────┘" },
+                { 5, "┌─────────┐\n│  ○   ○  │\n│    ○    │\n│  ○   ○  │\n└─────────┘" },
+                { 6, "┌─────────┐\n│  ○   ○  │\n│  ○   ○  │\n│  ○   ○  │\n└─────────┘" },
+            };
+
             do
             {
-                Console.WriteLine("Dice 1 rolled a: {0}", RollDie());
-                Console.WriteLine("Dice 2 rolled a: {0}", RollDie());
+                var shuffled = die.OrderBy(x => Guid.NewGuid()).Take(2);
+                foreach (KeyValuePair<int, string> i in shuffled)
+                {
+                    Console.WriteLine(i.Value);
+                    Console.WriteLine();
+                }
                 Console.WriteLine("Press enter to roll again or type q for quit");
-
             } while (Console.ReadLine() != "q");
         }
 
