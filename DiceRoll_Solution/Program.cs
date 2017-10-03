@@ -15,10 +15,27 @@ namespace DiceRoll_Solution
             Console.WriteLine("Press enter twice to begin rolling.\n");
             Console.ReadLine();
 
+            //draw the dice using text
+            var die = new Dictionary<int, string>
+            {
+                { 1, "[     ]\n[  o  ]\n[     ]" },
+                { 2, "[     ]\n[ o o ]\n[     ]" },
+                { 3, "[  o  ]\n[ o o ]\n[     ]" },
+                { 4, "[ o o ]\n[     ]\n[ o o ]" },
+                { 5, "[ o o ]\n[  o  ]\n[ o o ]" },
+                { 6, "[ o o ]\n[ o o ]\n[ o o ]" },
+            };
+
             do
             {
-                Console.WriteLine("Dice 1 rolled a: {0}", RollDie());
-                Console.WriteLine("Dice 2 rolled a: {0}", RollDie());
+                //use a little LINQ magic to get two random dice
+                //sort the dictionary in random order and take the top two items
+                var shuffled = die.OrderBy(x => Guid.NewGuid()).Take(2);
+                foreach (KeyValuePair<int, string> i in shuffled)
+                {
+                    Console.WriteLine(i.Value);
+                    Console.WriteLine();
+                }
                 Console.WriteLine("Press enter to roll again or type q for quit");
 
             } while (Console.ReadLine() != "q");
