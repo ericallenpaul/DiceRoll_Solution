@@ -17,8 +17,8 @@ namespace DiceRoll_Solution
 
             do
             {
-                Console.WriteLine("Dice 1 rolled a: {0}", RollDie());
-                Console.WriteLine("Dice 2 rolled a: {0}", RollDie());
+                Console.WriteLine("Dice 1 rolled: {0}", RollDie());
+                Console.WriteLine("Dice 2 rolled: {0}", RollDie());
                 Console.WriteLine("Press enter to roll again or type q for quit");
 
             } while (Console.ReadLine() != "q");
