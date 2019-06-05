@@ -19,7 +19,7 @@ namespace DiceRoll_Solution
             //tell the user what to do
             Console.WriteLine("This program will allow you to roll two dice");
             Console.WriteLine("as many times as you want.");
-            Console.WriteLine("Press enter twice to begin rolling.\n");
+            Console.WriteLine("Press enter to begin rolling.\n");
             Console.ReadLine();
 
             //create the string componenets we need to create the die faces
