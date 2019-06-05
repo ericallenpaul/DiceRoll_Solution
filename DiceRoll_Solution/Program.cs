@@ -12,7 +12,7 @@ namespace DiceRoll_Solution
         {
             Console.WriteLine("This program will allow you to roll two dice");
             Console.WriteLine("as many times as you want.");
-            Console.WriteLine("Press enter twice to begin rolling.\n");
+            Console.WriteLine("Press enter to begin rolling.\n");
             Console.ReadLine();
 
             //draw the dice using text
